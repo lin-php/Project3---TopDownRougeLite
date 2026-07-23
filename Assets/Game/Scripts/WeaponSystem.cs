@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class WeaponSystem : MonoBehaviour
 {
-    // [SerializeField] private WeaponData equippedWeapon;
+    [SerializeField] private WeaponData equippedWeapon;
     private float nextAttackTime;
-    [SerializeField] private float attackCooldown = 2f;
+   
 
     public void TryAttack()
     {
@@ -14,7 +14,7 @@ public class WeaponSystem : MonoBehaviour
             return;
         }
 
-        nextAttackTime = Time.time + attackCooldown;
+        nextAttackTime = Time.time + equippedWeapon.attackCooldown;
 
         PerformAttack();
     }
